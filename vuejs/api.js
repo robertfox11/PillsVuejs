@@ -10,14 +10,10 @@ var urlPhotos = "http://jsonplaceholder.typicode.com/photos?_limit=5&_page=1";
 new Vue({
   el: '#main',
   created: function() {
-      this.getPost(),
-      this.getAlbum(),
       this.getPhotos()
   },
   data:{
-      post:[],
-      album:[],
-      photos: [],
+      photos: []
   },
   methods: {
       getPhotos: function(){
