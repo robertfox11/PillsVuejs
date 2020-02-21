@@ -1,33 +1,32 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="bootstrap-4.3.1/dist/css/bootstrap.min.css" />
     <title>VuejsConectaApi</title>
-</head>
-<body>
+  </head>
+  <body>
     <div id="main" class="container">
-        <div class="row">
-            <div class="car col-3 m-1 mx-auto">
-                <img class="card-img-top" src="">
-                <div class="card-body">
-                    <h5 class="card-title" v-for="item in list" class="list-group-item">{{ item.id}}</h5>
-                    <p class="card-text" v-for="item in list" class="list-group-item">{{item.title}}</p>
-                </div>
-            </div>
-            <div class="col-sm-8">
-                <h1>Json</h1>
-                <pre>
-                    {{$data | json}}
-                </pre>
-            </div>
+      <!-- <div class="row"> -->
+        <div class="card mb-3">
+          <!-- <img class="card-img-top" src="" alt="Card image cap"/> -->
+          <div class="card-body">
+            <h5 class="card-title" v-for="item in list">{{ item.id}}</h5>
+            <p class="card-text" v-for="item in list">{{ item.title}}</p>
+          </div>
         </div>
+        <div class="col-sm-8">
+          <h1>Json</h1>
+          <pre>
+                  {{$data | json}}
+          </pre>
+        </div>
+      </div>
     </div>
+
     <script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.6.11/vue.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.19.2/axios.min.js"></script>
-    <script src="./vuejs/api.js" type="text/javascript">
-    
-    </script>
-</body>
+    <script src="./vuejs/api.js" type="text/javascript"></script>
+  </body>
 </html>

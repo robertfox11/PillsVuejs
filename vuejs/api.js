@@ -1,17 +1,30 @@
-var urlApi = "https://jsonplaceholder.typicode.com/photos";
+Vue.component('common-list',{
+  props : ['lists'],
+  template : `<ul class="list-group">
+  <li v-for="item in lists" class="list-group-item">
+      {{item.title}}
+  </li>
+</ul>`
+});
+var urlPhotos = "http://jsonplaceholder.typicode.com/photos?_limit=5&_page=1";
 new Vue({
-  el: "#main",
+  el: '#main',
   created: function() {
-    this.getUser();
+      this.getPost(),
+      this.getAlbum(),
+      this.getPhotos()
   },
-  data: {
-    list: []
+  data:{
+      post:[],
+      album:[],
+      photos: [],
   },
   methods: {
-    getUser: function() {
-      axios.get(urlApi).then(res => {
-        this.list =res.data
-      })
-    }
-  }
-});
+      getPhotos: function(){
+          axios.get(urlPhotos).then(res =>{
+              this.photos = res.data
+          });
+      }
+  },
+
+})
