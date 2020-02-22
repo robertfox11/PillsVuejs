@@ -10,13 +10,7 @@
     <div id="main" class="container">
       <h1>Photos Vuejs -Ajax-Axios</h1>
       <div class="row">
-        <div class="card col-3 m-1 mx-auto" v-for="item in photos">
-          <img class="card-img-top" v-bind:src="`${item.thumbnailUrl}`">
-          <div class="card-body">
-            <h5 class="card-title" >{{ item.id}}</h5>
-            <p class="card-text">{{ item.title}}</p>
-          </div>
-        </div>
+        <common-list v-bind:lists="photos"></common-list>
         <!-- <div class="col-sm-8">
           <h1>Json</h1>
           <pre>

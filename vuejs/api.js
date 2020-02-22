@@ -1,10 +1,14 @@
 Vue.component("common-list", {
   props: ["lists"],
-  template: `<div class="card-body">
-      <h5 class="card-title" >{{ item.id}}</h5>
-      <p class="card-text">{{ item.title}}</p>
-    </div>
-  </div>`
+  template: `<div class="row">
+  <div class="card col-3 m-1 mx-auto" v-for="item in lists">
+  <img class="card-img-top" v-bind:src="item.thumbnailUrl">
+  <div class="card-body">
+    <h5 class="card-title" >{{ item.id}}</h5>
+    <p class="card-text">{{ item.title}}</p>
+  </div>
+  </div>
+</div>`
 });
 const URL = "https://jsonplaceholder.typicode.com/photos?_limit=5&_page=";
 new Vue({
