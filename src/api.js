@@ -1,4 +1,5 @@
-import './'
+import './scss/main.scss';
+// import "./scss/main.scss";
 //create Template component
 Vue.component("common-list", {
   props: ["lists"],
@@ -53,3 +54,4 @@ new Vue({
     }
   }
 });
+// require('./css/styles.css')

@@ -5,7 +5,7 @@ const webpack = require("webpack");
 module.exports = {
     mode: 'development',
     //la direccion de origen 
-    entry: './src/main.js',
+    entry: './src/api.js',
     watch: true,
     output: {
         //creamos una carpeta de salida dist
@@ -44,9 +44,7 @@ module.exports = {
                         outputPath: 'assets/img',
                         // useRelativePath: true,
                         esModule: false
-
                     },
-
                 }, ],
             },
         ],
@@ -61,7 +59,7 @@ module.exports = {
         }),
         new HtmlWebPackPlugin({
             //vamos a copiar este index para mandarlo al dist
-            template: './src/index.html',
+            template: './index.html',
             filename: "./index.html"
         }),
         new MiniCssExtractPlugin({
