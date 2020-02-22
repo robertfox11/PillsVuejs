@@ -1,3 +1,4 @@
+import './'
 //create Template component
 Vue.component("common-list", {
   props: ["lists"],
