@@ -1,28 +1,49 @@
-Vue.component('common-list',{
-  props : ['lists'],
-  template : ` <div class="row">
-  <div class="card col-4 m-1 mx-auto" v-for="item in lists">
-    <div class="card-body">
+Vue.component("common-list", {
+  props: ["lists"],
+  template: `<div class="card-body">
       <h5 class="card-title" >{{ item.id}}</h5>
       <p class="card-text">{{ item.title}}</p>
     </div>
   </div>`
 });
-var urlPhotos = "http://jsonplaceholder.typicode.com/photos?_limit=5&_page=1";
+const URL = "https://jsonplaceholder.typicode.com/photos?_limit=5&_page=";
 new Vue({
-  el: '#main',
+  el: "#main",
   created: function() {
-      this.getPhotos()
+    this.getPhotos();
   },
-  data:{
-      photos: []
+  data: {
+    photos: [],
+    load: [],
+    page: 1
   },
   methods: {
-      getPhotos: function(){
-          axios.get(urlPhotos).then(res =>{
-              this.photos = res.data
-          });
-      }
-  },
-
-})
+    getPhotos: function() {
+      axios.get(URL+this.page++).then(res => {
+        this.photos = [...this.photos, ...res.data];
+        res.data.forEach(item => {
+          var img = new Image();
+          img.src = item.url;
+          img.onload = () => {
+            this.load.push(img.src);
+            if (this.load.length == this.photos.length) {
+              this.updateScrollEvent();
+            }
+          };
+        });
+      });
+      
+    },
+    updateScrollEvent() {
+      var updated = false;
+      window.onscroll = ev => {
+        var userPosition = window.innerHeight + window.scrollY;
+        var height = document.body.offsetHeight;
+        if (!updated && userPosition >= height) {
+          updated = true;
+          this.getPhotos();
+        }
+      };
+    }
+  }
+});
