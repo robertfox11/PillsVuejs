@@ -1,3 +1,4 @@
+//create Template component
 Vue.component("common-list", {
   props: ["lists"],
   template: `<div class="row">
