@@ -3,8 +3,8 @@ import './scss/main.scss';
 //create Template component
 Vue.component("common-list", {
   props: ["lists"],
-  template: `<div class="row">
-  <div class="card col-3 m-1 mx-auto" v-for="item in lists">
+  template: `<div class="card-deck">
+  <div class="card" v-for="item in lists">
   <img class="card-img-top" v-bind:src="item.thumbnailUrl">
   <div class="card-body">
     <h5 class="card-title" >{{ item.id}}</h5>
